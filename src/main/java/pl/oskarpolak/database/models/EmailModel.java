@@ -32,6 +32,7 @@ public class EmailModel {
         this.message = form.getMessage();
         this.subject = form.getSubject();
         this.date = LocalDateTime.now();
+
     }
 
     public EmailModel(int id, String author, String responder, String subject, String message, LocalDateTime dateSiema) {

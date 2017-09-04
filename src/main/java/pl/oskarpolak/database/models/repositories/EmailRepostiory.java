@@ -13,5 +13,6 @@ import java.util.List;
 @Repository
 public interface EmailRepostiory extends CrudRepository<EmailModel, Integer> {
     //@Query(nativeQuery =  true, value = "SELECT * FROM costam WHERE cos= ")
-    List<EmailModel> findByAuthor(String author);
+    List<EmailModel> findByAuthorStartingWith(String author);
+    EmailModel findFirstByAuthorStartingWithOrderByDateDesc(String author);
 }

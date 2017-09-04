@@ -49,6 +49,17 @@ public class MainController {
         return builder.toString();
     }
 
+    @GetMapping("/user/{user}")
+    @ResponseBody
+    public String getUser(@PathVariable("user") String user){
+        StringBuilder info = new StringBuilder();
+        info.append("Ostatni email: " + emailRepostiory.findFirstByAuthorStartingWithOrderByDateDesc(user).toString());
+        info.append("<br>");
+        info.append("Ilość wysłanych maili: " + emailRepostiory.findByAuthorStartingWith(user).size());
+        System.out.println(user);
+        return info.toString();
+    }
+
 
 }
 

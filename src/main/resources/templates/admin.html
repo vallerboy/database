@@ -7,7 +7,8 @@
 <body>
 <center>
     <th:block th:each="item : ${emails}">
-        <a th:href="@{'/user/' + ${item.author}}" th:text="'User to' + ${item.author}"></a>
+        <a href="#" th:href="@{'/user/' + ${item.author}}" th:text="'User to' + ${item.author}"></a>
+        <p></p>
     </th:block>
 </center>
 </body>
