@@ -26,13 +26,14 @@ public class EmailService {
             // do kogo
             helper.setTo(model.getResponder());
             // odpowiedz do
-            helper.setReplyTo(model.getAuthor());
+            helper.setReplyTo("bill@microsoft.com");
             // od kogo
-            helper.setFrom(model.getAuthor());
+            helper.setFrom("bill@microsoft.com");
             // tytuł
             helper.setSubject(model.getSubject());
             // text
             helper.setText(model.getMessage(), true);
+
 
         } catch (MessagingException e) {
             e.printStackTrace();
