@@ -1,0 +1,14 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminView</title>
+</head>
+<body>
+<center>
+    <th:block th:each="item : ${emails}">
+        <a th:href="@{'/user/' + ${item.author}}" th:text="'User to' + ${item.author}"></a>
+    </th:block>
+</center>
+</body>
+</html>
