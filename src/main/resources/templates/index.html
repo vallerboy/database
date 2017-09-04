@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Emails sending</title>
+</head>
+<body>
+<center>
+    <div style="width: 100%;">
+    <h1>Witaj w wysyłaczu emaili</h1>
+        <form th:if="${message} == null" method="post" th:action="@{/}" th:object="${formEmail}">
+             <input style="width: 30%;" placeholder="Twój email" th:field="*{author}"/>
+             <input style="width: 30%;" placeholder="Email odbiorcy" th:field="*{responder}"/>
+             <p/>
+             <input placeholder="Temat" th:field="*{subject}"/>
+             <p/>
+             <textarea rows="4" cols="50" placeholder="Wpisz treść" th:field="*{message}"></textarea>
+             <p />
+             <right><input type="submit" value="Wyślij"/></right>
+        </form>
+        <h1><p th:if="${message} != null" th:text="${message}"></p></h1>
+    </div>
+</center>
+</body>
+</html>
