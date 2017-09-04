@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.oskarpolak.database.models.EmailModel;
 import pl.oskarpolak.database.models.forms.EmailForm;
 import pl.oskarpolak.database.models.repositories.EmailRepostiory;
+import pl.oskarpolak.database.models.services.EmailService;
 
 /**
  * Created by Lenovo on 04.09.2017.
@@ -17,6 +18,9 @@ public class MainController {
     @Autowired
     EmailRepostiory emailRepostiory;
 
+    @Autowired
+    EmailService emailService;
+
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("formEmail", new EmailForm());
@@ -25,7 +29,9 @@ public class MainController {
 
     @PostMapping("/")
     public String index(@ModelAttribute("formEmail") EmailForm form, Model model){
-        emailRepostiory.save(new EmailModel(form));
+        EmailModel emailModel = new EmailModel(form);
+        emailRepostiory.save(emailModel);
+        emailService.sendEmail(emailModel);
 
         model.addAttribute("message", "Wiadomość został wysłana. ");
 
